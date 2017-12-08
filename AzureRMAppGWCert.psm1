@@ -55,12 +55,12 @@
 
  .Example
    # Listing all Application Gateway Certificates and exporting all certificates file.
-   Get-AzureRMAppGWCert -Export $True
+   Get-AzureRMAppGWCert -Export
    This Example will list all certificates associated with all Application Gateways and export them : "Get-AzureRMAppGWCert -Export $True"   
 
 .Example
    # Listing all Application Gateway Certificates and show Details.
-   Get-AzureRMAppGWCert -Details $True
+   Get-AzureRMAppGWCert -Details
    This Example will list all certificates associated with all Application Gateways and show all Details about them : "Get-AzureRMAppGWCert -Details $True"   
 
 # A URL to the main website for this project.
@@ -71,8 +71,8 @@ Function Get-AzureRMAppGWCert{
     Param(
         [String]$RG,
         [String]$AppGWName,
-        [Bool]$Details,
-        [Bool]$Export
+        [Switch]$Details,
+        [Switch]$Export
     )   
 
     if($AppGWName -and $RG){

@@ -70,10 +70,10 @@ Import-Module AzureRMAppGWCert
 
    Listing all Application Gateway Certificates and exporting all certificates file.
 
-      Get-AzureRMAppGWCert -Export $True
+      Get-AzureRMAppGWCert -Export
 
    Listing all Application Gateway Certificates and show Details.
 
-      Get-AzureRMAppGWCert -Details $True
+      Get-AzureRMAppGWCert -Details
    
    
