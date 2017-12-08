@@ -66,6 +66,7 @@ Function Get-AzureRMAppGWCert{
     Param(
         [String]$RG,
         [String]$AppGWName,
+        [Bool]$Details,
         [Bool]$Export
     )   
 
@@ -76,7 +77,7 @@ Function Get-AzureRMAppGWCert{
         $AppGWs = Get-AzureRmApplicationGateway -ResourceGroupName $RG
     }
     elseif($AppGWName){
-        throw "'resourceGroupName' cannot be null when using AppGWName."
+        throw "-AppGWName requires parameter -RG (ResourceGroup)"
     }
     else{
         $AppGWs = Get-AzureRmApplicationGateway
@@ -104,6 +105,9 @@ Function Get-AzureRMAppGWCert{
             $WorkingObject.NotAfter = $HTTPsListenerSSLCertobj.NotAfter
             $WorkingObject
 
+            if($Details){
+                $HTTPsListenerSSLCertobj | Select-Object *
+            }
             if($Export){
                 [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$httpsListener.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
             }
@@ -136,7 +140,9 @@ Function Get-AzureRMAppGWCert{
                         $WorkingObjectBackEnd.NotBefore = $BackendCertObj.NotBefore
                         $WorkingObjectBackEnd.NotAfter = $BackendCertObj.NotAfter
                         $WorkingObjectBackEnd
-
+                        if($Details){
+                            $BackendCertObj | Select-Object *
+                        }
                         if($Export){
                             [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$rule.Name+"-"+$BackendHttpSettings.Name+"-"+$BackendCert.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
                         }
