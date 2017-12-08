@@ -51,26 +51,25 @@ Import-Module AzureRMAppGWCert
         NotAfter        : 11/28/2018 12:45:23 PM
  
  Examples:
+ 
    Listing all Application Gateway Certificates
 
-   Get-AzureRMAppGWCert
+      Get-AzureRMAppGWCert
 
-   This Example will get all Azure Application Gateways and list all certificates associated with all of them : "Get-AzureRMAppGWCert"
-
-   Listing Application Gateway Certificates in a Resource Group
-
-   Get-AzureRMAppGWCert -RG <Resource Group Name>
-
-   This Example will get all Azure Application Gateways in a Resource Group and list all certificates associated with them : "Get-AzureRMAppGWCert -RG <Resourge Group Name>"
+   This Example will get all Azure Application Gateways and list all certificates associated with all of them: 
    
-   Listing a specific Application Gateway Certificates
+      Get-AzureRMAppGWCert
 
-   Get-AzureRMAppGWCert -RG <Resource Group Name>
+   Listing Application Gateway Certificates in a Resource Group:
 
-   This Example will list all certificates associated with a specific Application Gateway : "Get-AzureRMAppGWCert -RG <Resourge Group Name> -AppGWName <Application Gateway Name>"
+      Get-AzureRMAppGWCert -RG <Resource Group Name>
+   
+   This Example will list all certificates associated with a specific Application Gateway: 
+   
+      Get-AzureRMAppGWCert -RG <Resourge Group Name> -AppGWName <Application Gateway Name>
 
    Listing all Application Gateway Certificates and exporting all certificates file.
 
-   Get-AzureRMAppGWCert -Export $True
+      Get-AzureRMAppGWCert -Export $True
    
-   This Example will list all certificates associated with all Application Gateways and export them : "Get-AzureRMAppGWCert -Export $True"   
+   
