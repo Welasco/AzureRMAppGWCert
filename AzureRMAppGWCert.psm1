@@ -75,12 +75,15 @@ Function Get-AzureRMAppGWCert{
     elseif($RG){
         $AppGWs = Get-AzureRmApplicationGateway -ResourceGroupName $RG
     }
+    elseif($AppGWName){
+        throw "'resourceGroupName' cannot be null when using AppGWName."
+    }
     else{
         $AppGWs = Get-AzureRmApplicationGateway
     }
 
-    $TemplateObject = New-Object PSObject | Select-Object AppGWName,ListnerName,Subject,Issuer,SerialNumber,Thumbprint,NotBefore,NotAfter
-    $TemplateObjectBackEnd = New-Object PSObject | Select-Object AppGWName,HTTPSetting,RuleName,BackendCertName,Subject,Issuer,SerialNumber,Thumbprint,NotBefore,NotAfter
+    $TemplateObject = New-Object PSObject | Select-Object AppGWName,ResourceGroupName,ListnerName,Subject,Issuer,SerialNumber,Thumbprint,NotBefore,NotAfter
+    $TemplateObjectBackEnd = New-Object PSObject | Select-Object AppGWName,ResourceGroupName,HTTPSetting,RuleName,BackendCertName,Subject,Issuer,SerialNumber,Thumbprint,NotBefore,NotAfter
 
     Foreach($AppGW in $AppGWs){
         
@@ -91,6 +94,7 @@ Function Get-AzureRMAppGWCert{
 
             $WorkingObject = $TemplateObject | Select-Object *
             $WorkingObject.AppGWName = $AppGW.Name
+            $WorkingObject.ResourceGroupName = $AppGW.ResourceGroupName
             $WorkingObject.ListnerName = $httpsListener.Name
             $WorkingObject.Subject = $HTTPsListenerSSLCertobj.Subject
             $WorkingObject.Issuer = $HTTPsListenerSSLCertobj.Issuer
@@ -121,6 +125,7 @@ Function Get-AzureRMAppGWCert{
                         
                         $WorkingObjectBackEnd = $TemplateObjectBackEnd | Select-Object *
                         $WorkingObjectBackEnd.AppGWName = $AppGW.Name
+                        $WorkingObjectBackEnd.ResourceGroupName = $AppGW.ResourceGroupName
                         $WorkingObjectBackEnd.RuleName = $rule.Name
                         $WorkingObjectBackEnd.HTTPSetting = $BackendHttpSettings.Name
                         $WorkingObjectBackEnd.BackendCertName = $BackendCert.Name
