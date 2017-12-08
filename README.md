@@ -50,7 +50,7 @@ Import-Module AzureRMAppGWCert
         NotBefore       : 11/28/2017 12:45:23 PM
         NotAfter        : 11/28/2018 12:45:23 PM
  
- Examples:
+ # Examples:
  
    Listing all Application Gateway Certificates
 
@@ -71,5 +71,9 @@ Import-Module AzureRMAppGWCert
    Listing all Application Gateway Certificates and exporting all certificates file.
 
       Get-AzureRMAppGWCert -Export $True
+
+   Listing all Application Gateway Certificates and show Details.
+
+      Get-AzureRMAppGWCert -Details $True
    
    
