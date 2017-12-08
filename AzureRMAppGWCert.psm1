@@ -114,7 +114,7 @@ Function Get-AzureRMAppGWCert{
                 $HTTPsListenerSSLCertobj | Select-Object *
             }
             if($Export){
-                [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$httpsListener.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
+                [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$appGw.ResourceGroupName+"-"+$httpsListener.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
             }
         }
 
@@ -149,7 +149,7 @@ Function Get-AzureRMAppGWCert{
                             $BackendCertObj | Select-Object *
                         }
                         if($Export){
-                            [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$rule.Name+"-"+$BackendHttpSettings.Name+"-"+$BackendCert.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
+                            [System.IO.File]::WriteAllBytes((Resolve-Path .\).Path+"\"+$AppGW.Name+"-"+$appGw.ResourceGroupName+"-"+$rule.Name+"-"+$BackendHttpSettings.Name+"-"+$BackendCert.Name+".cer",$HTTPsListenerSSLCertobj.RawData) 
                         }
                     }
                 }
