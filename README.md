@@ -8,6 +8,7 @@ This Module is Published at https://www.powershellgallery.com/packages/AzureRMAp
 In order to install just open the powershell as Administrator and type: 
 
 Install-Module AzureRMAppGWCert
+
 Import-Module AzureRMAppGWCert
 
 * Note: This module requires you have AzureRM installed. Please refer to the following instruction before you proceed:
@@ -70,11 +71,11 @@ Install and configure Azure PowerShell (https://docs.microsoft.com/en-us/powersh
    
       Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
 
-   Listing all Application Gateway Certificates and exporting all certificates file.
+   Listing all Application Gateway Certificates and exports all of them to certificate .cer format.
 
       Get-AzureRMAppGWCert -Export
 
-   Listing all Application Gateway Certificates and show Details.
+   Listing all Application Gateway Certificates and show all details (all certificate attributes).
 
       Get-AzureRMAppGWCert -Details  
    
