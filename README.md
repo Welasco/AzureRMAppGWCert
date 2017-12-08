@@ -8,16 +8,18 @@ This Module is Published at https://www.powershellgallery.com/packages/AzureRMAp
 In order to install just open the powershell as Administrator and type: 
 
 Install-Module AzureRMAppGWCert
-
 Import-Module AzureRMAppGWCert
+
+* Note: This module requires you have AzureRM installed. Please refer to the following instruction before you proceed:
+Install and configure Azure PowerShell (https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
 
 # How to use this Module
 
   This Module list all certificates associated with an Azure Application Gateway.
 
-  After you have deployed an Azure Application Gateway is not possible to list the certificate properties associated with a listener, rule or httpsetting.
+  After you have deployed an Azure Application Gateway is not possible, at this moment, to list the certificate properties associated with a Listener, Rule or Http Setting.
 
-  This Module will list all certificates and bring an out put like this:
+  This Module will list all certificates associated with Application Gateway and generate an output like this:
 
         PS C:\> Get-AzureRMAppGWCert -RG OfficeClient -AppGWName AppGateway
 
@@ -66,7 +68,7 @@ Import-Module AzureRMAppGWCert
    
    This Example will list all certificates associated with a specific Application Gateway: 
    
-      Get-AzureRMAppGWCert -RG <Resourge Group Name> -AppGWName <Application Gateway Name>
+      Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
 
    Listing all Application Gateway Certificates and exporting all certificates file.
 
@@ -74,6 +76,5 @@ Import-Module AzureRMAppGWCert
 
    Listing all Application Gateway Certificates and show Details.
 
-      Get-AzureRMAppGWCert -Details
-   
+      Get-AzureRMAppGWCert -Details  
    
