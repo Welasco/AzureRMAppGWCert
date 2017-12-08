@@ -4,8 +4,8 @@
 
  .Description
   This Module list all certificates associated with an Azure Application Gateway.
-  After you have deployed an Azure Application Gateway is not possible to list the certificate properties associated with a listener, rule or httpsetting.
-  This Module will list all certificates and bring an out put like this:
+  After you have deployed an Azure Application Gateway is not possible to list the certificate properties associated with a Listener, Rule or Http setting.
+  This Module will list all certificates and an output like this:
 
  PS C:\> Get-AzureRMAppGWCert -RG OfficeClient -AppGWName AppGateway
 
@@ -38,30 +38,30 @@
     NotBefore       : 11/28/2017 12:45:23 PM
     NotAfter        : 11/28/2018 12:45:23 PM
  
- .Example
+ .Example 1
    # Listing all Application Gateway Certificates
    Get-AzureRMAppGWCert
    This Example will get all Azure Application Gateways and list all certificates associated with all of them : "Get-AzureRMAppGWCert"
 
- .Example
+ .Example 2
    # Listing Application Gateway Certificates in a Resource Group
    Get-AzureRMAppGWCert -RG <Resource Group Name>
-   This Example will get all Azure Application Gateways in a Resource Group and list all certificates associated with them : "Get-AzureRMAppGWCert -RG <Resourge Group Name>"
+   This Example will get all Azure Application Gateways in a Resource Group and list all certificates associated with them : "Get-AzureRMAppGWCert -RG <Resource Group Name>"
 
- .Example
+ .Example 3
    # Listing a specific Application Gateway Certificates
-   Get-AzureRMAppGWCert -RG <Resource Group Name>
-   This Example will list all certificates associated with a specific Application Gateway : "Get-AzureRMAppGWCert -RG <Resourge Group Name> -AppGWName <Application Gateway Name>"
+   Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
+   This Example will list all certificates associated with a specific Application Gateway : "Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>"
 
- .Example
+ .Example 4
    # Listing all Application Gateway Certificates and exporting all certificates file.
    Get-AzureRMAppGWCert -Export
    This Example will list all certificates associated with all Application Gateways and export them : "Get-AzureRMAppGWCert -Export $True"   
 
-.Example
+.Example 5
    # Listing all Application Gateway Certificates and show Details.
    Get-AzureRMAppGWCert -Details
-   This Example will list all certificates associated with all Application Gateways and show all Details about them : "Get-AzureRMAppGWCert -Details $True"   
+   This Example will list all certificates associated with all Application Gateways and show all Details about them: "Get-AzureRMAppGWCert -Details $True"   
 
 # A URL to the main website for this project.
 ProjectUri = 'https://github.com/Welasco/AzureRMAppGWCert'
