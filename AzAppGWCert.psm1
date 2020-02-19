@@ -7,7 +7,7 @@
   After you have deployed an Azure Application Gateway is not possible to list the certificate properties associated with a Listener, Rule or Http setting.
   This Module will list all certificates and an output like this:
 
- PS C:\> Get-AzureRMAppGWCert -RG OfficeClient -AppGWName AppGateway
+ PS C:\> Get-AzAppGWCert -RG OfficeClient -AppGWName AppGateway
 
     AppGWName    : AppGateway
     ListnerName  : appGatewayHttpListener
@@ -40,34 +40,34 @@
  
  .Example
    # Listing all Application Gateway Certificates
-   Get-AzureRMAppGWCert
-   This Example will get all Azure Application Gateways and list all certificates associated with all of them : "Get-AzureRMAppGWCert"
+   Get-AzAppGWCert
+   This Example will get all Azure Application Gateways and list all certificates associated with all of them : "Get-AzAppGWCert"
 
  .Example
    # Listing Application Gateway Certificates in a Resource Group
-   Get-AzureRMAppGWCert -RG <Resource Group Name>
-   This Example will get all Azure Application Gateways in a Resource Group and list all certificates associated with them : "Get-AzureRMAppGWCert -RG <Resource Group Name>"
+   Get-AzAppGWCert -RG <Resource Group Name>
+   This Example will get all Azure Application Gateways in a Resource Group and list all certificates associated with them : "Get-AzAppGWCert -RG <Resource Group Name>"
 
  .Example
    # Listing a specific Application Gateway Certificates
-   Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
-   This Example will list all certificates associated with a specific Application Gateway : "Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>"
+   Get-AzAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
+   This Example will list all certificates associated with a specific Application Gateway : "Get-AzAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>"
 
  .Example
    # Listing all Application Gateway Certificates and exporting all certificates file.
-   Get-AzureRMAppGWCert -Export
-   This Example will list all certificates associated with all Application Gateways and export them : "Get-AzureRMAppGWCert -Export"   
+   Get-AzAppGWCert -Export
+   This Example will list all certificates associated with all Application Gateways and export them : "Get-AzAppGWCert -Export"   
 
 .Example
    # Listing all Application Gateway Certificates and show Details.
-   Get-AzureRMAppGWCert -Details
-   This Example will list all certificates associated with all Application Gateways and show all Details about them: "Get-AzureRMAppGWCert -Details"   
+   Get-AzAppGWCert -Details
+   This Example will list all certificates associated with all Application Gateways and show all Details about them: "Get-AzAppGWCert -Details"   
 
 # A URL to the main website for this project.
-ProjectUri = 'https://github.com/Welasco/AzureRMAppGWCert'
+ProjectUri = 'https://github.com/Welasco/AzAppGWCert'
 #>
 
-Function Get-AzureRMAppGWCert{
+Function Get-AzAppGWCert{
     Param(
         [String]$RG,
         [String]$AppGWName,
@@ -76,16 +76,16 @@ Function Get-AzureRMAppGWCert{
     )   
 
     if($AppGWName -and $RG){
-        $AppGWs = Get-AzureRmApplicationGateway -ResourceGroupName $RG -Name $AppGWName
+        $AppGWs = Get-AzApplicationGateway -ResourceGroupName $RG -Name $AppGWName
     }
     elseif($RG){
-        $AppGWs = Get-AzureRmApplicationGateway -ResourceGroupName $RG
+        $AppGWs = Get-AzApplicationGateway -ResourceGroupName $RG
     }
     elseif($AppGWName){
         throw "-AppGWName requires parameter -RG (ResourceGroup)"
     }
     else{
-        $AppGWs = Get-AzureRmApplicationGateway
+        $AppGWs = Get-AzApplicationGateway
     }
 
     $TemplateObject = New-Object PSObject | Select-Object AppGWName,ResourceGroupName,ListnerName,Subject,Issuer,SerialNumber,Thumbprint,NotBefore,NotAfter
@@ -160,4 +160,4 @@ Function Get-AzureRMAppGWCert{
 
 # ### Exported Module Function ###
 
-Export-ModuleMember -Function Get-AzureRMAppGWCert
+Export-ModuleMember -Function Get-AzAppGWCert
