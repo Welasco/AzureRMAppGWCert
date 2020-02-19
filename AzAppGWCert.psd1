@@ -12,7 +12,7 @@
     RootModule = 'AzAppGWCert'
     
     # Version number of this module.
-    ModuleVersion = '1.0.8'
+    ModuleVersion = '2.0.0'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()

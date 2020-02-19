@@ -7,9 +7,9 @@ This Module is Published at https://www.powershellgallery.com/packages/AzureRMAp
 
 In order to install just open the powershell as Administrator and type: 
 
-Install-Module AzureRMAppGWCert
+Install-Module AzAppGWCert
 
-Import-Module AzureRMAppGWCert
+Import-Module AzAppGWCert
 
 * Note: This module requires you have AzureRM installed. Please refer to the following instruction before you proceed:
 Install and configure Azure PowerShell (https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)
@@ -22,7 +22,7 @@ Install and configure Azure PowerShell (https://docs.microsoft.com/en-us/powersh
 
   This Module will list all certificates associated with Application Gateway and generate an output like this:
 
-        PS C:\> Get-AzureRMAppGWCert -RG OfficeClient -AppGWName AppGateway
+        PS C:\> Get-AzAppGWCert -RG OfficeClient -AppGWName AppGateway
 
         AppGWName    : AppGateway
         ListnerName  : appGatewayHttpListener
@@ -57,25 +57,25 @@ Install and configure Azure PowerShell (https://docs.microsoft.com/en-us/powersh
  
    Listing all Application Gateway Certificates
 
-      Get-AzureRMAppGWCert
+      Get-AzAppGWCert
 
    This Example will get all Azure Application Gateways and list all certificates associated with all of them: 
    
-      Get-AzureRMAppGWCert
+      Get-AzAppGWCert
 
    Listing Application Gateway Certificates in a Resource Group:
 
-      Get-AzureRMAppGWCert -RG <Resource Group Name>
+      Get-AzAppGWCert -RG <Resource Group Name>
    
    This Example will list all certificates associated with a specific Application Gateway: 
    
-      Get-AzureRMAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
+      Get-AzAppGWCert -RG <Resource Group Name> -AppGWName <Application Gateway Name>
 
    Listing all Application Gateway Certificates and exports all of them to certificate .cer format.
 
-      Get-AzureRMAppGWCert -Export
+      Get-AzAppGWCert -Export
 
    Listing all Application Gateway Certificates and show all details (all certificate attributes).
 
-      Get-AzureRMAppGWCert -Details  
+      Get-AzAppGWCert -Details  
    
